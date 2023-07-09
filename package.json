@@ -1,0 +1,6 @@
+{
+  "dependencies": {
+    "@maplibre/maplibre-gl-leaflet": "^0.0.19",
+    "maplibre-gl": "^3.1.0"
+  }
+}
