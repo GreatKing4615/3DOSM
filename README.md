@@ -5,12 +5,12 @@
 2) поместить его по такому адресу 3DOSM\tileserver-data
 3) в папке 3d-osm выполнить npm install
 4) правильным образом создать контейнер с TailServer смог только Docker Desctop. Не могу сказать почему - при запуске с cmd у меня он так и не увидел volume с данными
- 
-![image](https://github.com/GreatKing4615/3DOSM/assets/59148289/6cd9385a-8562-4012-9872-ef1cb528e4a4)
+
+ ![image](https://github.com/GreatKing4615/3DOSM/assets/59148289/8e20aace-4f44-4737-b385-e8d36dbd5858)
 
 5) ТейлСервер готов - можно посмотреть на него по http://localhost:8080/
 6) Для запуска реакт приложения необходимо перейти в директорию 3d-osm
-7) выполнить npm install
+7) выполнить npm install (у меня v16.14.0 версия node и 9.8.0 npm )
 8) npm start
 
 карта будет доступна по http://localhost:3000/
