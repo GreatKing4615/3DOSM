@@ -42,22 +42,27 @@ https://hub.docker.com/r/maputnik/editor
 ##Конвертация pbf в .mbtiles
 1) прямой конвертации pbf в .mbtiles нет, можно реализовать через промежуточный geojson. 
 Необходимо установить osmium и tippecanoe (его нужно собрать из исходников)
-apt install osmium-tool
-apt-get install libsqlite3-dev zlib1g-dev make-guile g++
-git clone https://github.com/mapbox/tippecanoe.git
-cd tippecanoe
-make -j
-make install
 
-2) помещаем наш PBF_FILE.osm.pbf в папку pbf_files/
-3) создаем виртуальное окружение:
-cd converter_py
-python3 -m venv env
-source env/bin/activate
++ apt install osmium-tool
++ apt-get install libsqlite3-dev zlib1g-dev make-guile g++
++ git clone https://github.com/mapbox/tippecanoe.git
++ cd tippecanoe
++ make -j
++ make install
+
+3) помещаем наш PBF_FILE.osm.pbf в папку pbf_files/
+4) создаем виртуальное окружение:
++ cd converter_py
++ python3 -m venv env
++ source env/bin/activate
+  
 4)python3 converter.py "../pbf_files/<PBF_FILE>.osm.pbf" "../tileserver/example_output.mbtiles"
+
 5)необходимо узнать
-osmium filename <PATH_TO_PBF_FILE>.osm.pbf
++ osmium filename <PATH_TO_PBF_FILE>.osm.pbf
+
 нужна строка такого вида для того чтобы установить их в tileserver/config.json
+
 Header:
   Bounding boxes:
     (40.67265,40.25966,50.80178,46.23914)
@@ -68,13 +73,15 @@ Header:
         "mbtiles": "/data/example_output.mbtiles"
       }
     }
+    
 7) в стилях необходимо прописать сохраненные нами Bounding boxes
 пример:
-      "custom-3d": {
+
+     `"custom-3d": {
         "style": "/data/styles/custom_3d.json",
         "tilejson": {
           "bounds": [40.67265, 40.25966, 50.80178, 46.23914]
         }
-      }
-8) перезагружаем тайлсервер
-docker restart <containerId>
+      }`
+9) перезагружаем тайлсервер
++ docker restart <containerId>
