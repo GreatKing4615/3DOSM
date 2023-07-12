@@ -39,7 +39,7 @@ https://hub.docker.com/r/maputnik/editor
 
 
 
-##Конвертация pbf в .mbtiles
+## Конвертация pbf в .mbtiles
 1) прямой конвертации pbf в .mbtiles нет, можно реализовать через промежуточный geojson. 
 Необходимо установить osmium и tippecanoe (его нужно собрать из исходников)
 
